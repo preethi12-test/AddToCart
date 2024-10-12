@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//div[@class='header__icons']/descendant::a[@id='cart-icon-bubble']"
+}

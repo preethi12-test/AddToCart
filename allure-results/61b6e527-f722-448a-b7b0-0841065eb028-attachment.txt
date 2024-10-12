@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//div[@class='product__info-wrapper grid__item']/descendant::h1[contains(.,'15mm Combo Wrench')]"
+}

@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//div[@class='product-form__buttons']/descendant::button[@name='add']"
+}
