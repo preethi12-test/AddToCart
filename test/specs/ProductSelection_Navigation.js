@@ -14,6 +14,15 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
          expect(productna).to.be.true
        
         await Home_page.addCart.click() 
+       const message =  await $("//h2[@class='cart-notification__heading caption-large' and contains(text(), 'Item added to your cart')]")
+       await message.waitForDisplayed({timeout:5000})
+       const mess = await message.getText();
+       console.log(mess)
+        let itemnotification=await $("//h2[@class='cart-notification__heading caption-large' and contains(text(), 'Item added to your cart')]").getText()
+        console.log(itemnotification)
+        expect(itemnotification).to.contains('Item added to your cart')
+       
+
        await browser.pause(3000)
        await Home_page.carticon.click()
         /**
@@ -26,7 +35,8 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
      */
         let quantity = await Home_page.productQuantity.getValue()
         expect(quantity).to.equal(testData.quantity)
-        
+       
+      
 
 
     })
