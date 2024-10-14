@@ -1,4 +1,6 @@
 
+
+import testData from "../TestData/data.json"
 /**
  * sub page containing specific selectors and methods for a specific page
  */
@@ -20,6 +22,34 @@ class Home_page{
     {
         return $("//div[@class='cart__items']/descendant::a[contains(.,'15mm Combo Wrench')]")
     }
+    get SearchBtn() {
+        return $("//details-modal[@class='header__search']");
+    }
+    get searchInput()
+    {
+        return $("//input[@id='Search-In-Modal']")
+    }
+    get selectList()
+    {
+        return $("//div[@class='predictive-search predictive-search--header']/descendant::li[@id='predictive-search-option-1']")
+    }
+    get productdetails()
+    {
+        return $("//div[@class='product__info-wrapper grid__item']//descendant::h1[contains(.,'"+testData.produnctname+"')]")
+    }
+    get productQuantity()
+    {
+        return $("//div[@class='cart__items']/descendant::input[@id='Quantity-1']")
+    }
+    async search_and_Select()
+    {
+        await this.SearchBtn.click()
+        await this.searchInput.setValue(testData.produnctname)
+       await this.selectList.click()
+
+
+    }
+
 
 
 
