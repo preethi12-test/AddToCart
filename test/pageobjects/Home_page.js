@@ -22,19 +22,6 @@ class Home_page{
     }
 
 
-    // async home(){
-
-    //     await browser.url("https://web-playground.ultralesson.com/")
-
-    //     await browser.pause(3000);
-    //     // Time.sleep(5)
-    //     await $("//a[contains(.,'15mm Combo Wrench')]/ancestor::div[@class='card-wrapper']").click()
-    //     const currnturl=await browser.getUrl()
-    //     expect(currnturl).contains('Combo')
-    //     await $("//button[contains(.,'Add to cart')]").click()
-        
-    //     // Time.sleep(5)
-    // }
 
 }
 export default new Home_page()
