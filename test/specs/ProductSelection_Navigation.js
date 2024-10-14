@@ -12,8 +12,13 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
           */
          let productna=await Home_page.productdetails.isDisplayed()
          expect(productna).to.be.true
-       
+         /** verifying avaialability of product to put in the cart
+          */
+       let addtocartbtn=await Home_page.addCart.isDisplayed()
+       expect(addtocartbtn).to.be.true
         await Home_page.addCart.click() 
+        /** verifying item added to cart pop up message
+          */
        const message =  await $("//h2[@class='cart-notification__heading caption-large' and contains(text(), 'Item added to your cart')]")
        await message.waitForDisplayed({timeout:5000})
        const mess = await message.getText();
