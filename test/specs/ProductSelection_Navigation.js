@@ -15,14 +15,14 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
          /** verifying avaialability of product to put in the cart
           */
          const productavailcheck=await $("//div[@id='price-template--15328405717213__main']/descendant::span[contains(.,'Sold out')]").getText()
-         await browser.pause(3000)
+        browser.pause(3000)
          
          if(productavailcheck.includes('Sold out'))
         {
+         this.skip()
         console.log("Product sold out");
         
        }
-       
          await Home_page.addCart.click() 
         /** verifying item added to cart pop up message
           */
@@ -31,8 +31,7 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
        const mess = await message.getText();
        console.log(mess)
         let itemnotification=await $("//h2[@class='cart-notification__heading caption-large' and contains(text(), 'Item added to your cart')]").getText()
-        console.log(itemnotification)
-        expect(itemnotification).to.contains('Item added to your cart')
+        expect(itemnotification).to.contains(testData.itemaddedMessage)
        
 
        await browser.pause(3000)
