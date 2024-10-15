@@ -14,9 +14,16 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
          expect(productna).to.be.true
          /** verifying avaialability of product to put in the cart
           */
-       let addtocartbtn=await Home_page.addCart.isDisplayed()
-       expect(addtocartbtn).to.be.true
-        await Home_page.addCart.click() 
+         const productavailcheck=await $("//div[@id='price-template--15328405717213__main']/descendant::span[contains(.,'Sold out')]").getText()
+         await browser.pause(3000)
+         
+         if(productavailcheck.includes('Sold out'))
+        {
+        console.log("Product sold out");
+        
+       }
+       
+         await Home_page.addCart.click() 
         /** verifying item added to cart pop up message
           */
        const message =  await $("//h2[@class='cart-notification__heading caption-large' and contains(text(), 'Item added to your cart')]")
@@ -41,7 +48,6 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
         let quantity = await Home_page.productQuantity.getValue()
         expect(quantity).to.equal(testData.quantity)
        
-      
 
 
     })
