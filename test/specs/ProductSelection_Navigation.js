@@ -1,4 +1,4 @@
-import { expect } from "chai"
+
 import Home_page from "../pageobjects/Home_page.js"
 
 import testData from "../TestData/data.json"
@@ -7,7 +7,7 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
    
     it('addtocart',async()=>{
         await browser.url(testData.url)
-         await Home_page.search_and_Select(testData.produnctname)
+         await Home_page.navigateToLoginPage(testData.produnctname)
          /** validating product details
           */
          let productname=await Home_page.productdetails.isDisplayed()
@@ -50,26 +50,5 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
         let quantity = await Home_page.productQuantity.getValue()
         expect(quantity).to.equal(testData.quantity)
        
-
-
-   
-
-   // afterEach(async()=>{
-   //    try{
- 
-   //       await Home_page.carticon.click()
-         
-   //       await Home_page.deletebtn.click()
-
-   //       const emptyCartMessage = await $("//h1[@class='cart__empty-text']");
-   //  await emptyCartMessage.waitForDisplayed({ timeout: 5000 });
-   //  expect(await emptyCartMessage.isDisplayed()).to.be.true;
-   //  console.log("Cart is confirmed to be empty.");
-         
-   //    }
-   //    catch (error) {
-   //       console.error(`Error in afterEach cleanup: ${error}`);
-   //   }
-   // }) 
 })
 })

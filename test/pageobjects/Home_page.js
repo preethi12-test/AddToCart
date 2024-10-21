@@ -53,13 +53,11 @@ class Home_page{
     {
         return $("//cart-remove-button[@id='Remove-1']")
     }
-    async search_and_Select(productnam)
+    async navigateToLoginPage(productnam)
     {
         await this.SearchBtn.click()
         await this.searchInput.setValue(productnam)
        await this.selectList.click()
-
-
     }
 
     
