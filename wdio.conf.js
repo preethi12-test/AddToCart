@@ -231,8 +231,25 @@ export const config = {
      * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
      * afterEach in Mocha)
      */
-    // afterHook: function (test, context, { error, result, duration, passed, retries }, hookName) {
-    // },
+    afterHook: async () => {
+        
+    
+        try{
+ 
+                  await Home_page.carticon.click()
+                  
+                  await Home_page.deletebtn.click()
+         
+                  const emptyCartMessage = await $("//h1[@class='cart__empty-text']");
+             await emptyCartMessage.waitForDisplayed({ timeout: 5000 });
+             expect(await emptyCartMessage.isDisplayed()).to.be.true;
+             console.log("Cart is confirmed to be empty.");
+                  
+               }
+               catch (error) {
+                  console.error(`Error in afterEach cleanup: ${error}`);
+              }
+    },
     /**
      * Function to be executed after a test (in Mocha/Jasmine only)
      * @param {object}  test             test object
