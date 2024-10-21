@@ -55,7 +55,9 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
     })
 
    afterEach(async()=>{
+      try{
 
+      
          await Home_page.carticon.click()
  
          
@@ -66,6 +68,9 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
     expect(await emptyCartMessage.isDisplayed()).to.be.true;
     console.log("Cart is confirmed to be empty.");
          
-
+      }
+      catch (error) {
+         console.error(`Error in afterEach cleanup: ${error}`);
+     }
    }) 
 })
