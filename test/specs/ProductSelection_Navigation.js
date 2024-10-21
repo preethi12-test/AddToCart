@@ -7,11 +7,13 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
    
     it('addtocart',async()=>{
         await browser.url(testData.url)
-         await Home_page.search_and_Select()
+         await Home_page.search_and_Select(testData.produnctname)
          /** validating product details
           */
          let productname=await Home_page.productdetails.isDisplayed()
          expect(productname).to.be.true
+         console.log("Product details got displayed");
+         
          /** verifying avaialability of product to put in the cart
           */
          const productavailcheck=await $("//div[@id='price-template--15328405717213__main']/descendant::span[contains(.,'Sold out')]").getText()
@@ -25,9 +27,6 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
         
        }
        const price=await Home_page.price.getText()
-       /**
-        *  verifying price
-        */
      expect(price).includes(testData.Product_price)
       
          await Home_page.addCart.click() 
@@ -38,24 +37,16 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
        await message.waitForDisplayed({timeout:5000})
         let itemnotification=await $("//h2[@class='cart-notification__heading caption-large' and contains(text(), 'Item added to your cart')]").getText()
         expect(itemnotification).to.contains(testData.itemaddedMessage)
-
-      
+        console.log("Product added to cart sucessfully");
+        
        await Home_page.carticon.click()
        
-       let price_in_cart=await Home_page.prcice_at_cart.getText()
-      
-       /**
-        * Verifying Subtotal price
-        */
+       let price_in_cart=await Home_page.prciceAtCart.getText()
       expect(price_in_cart).includes(testData.Total_price)
-        /**
-     * validating product in the cart
-     */
         let text=await Home_page.cartpage.getText()
         expect(text).to.equal(testData.produnctname)
-        /**
-     * validating quantity in the cart
-     */
+        console.log("Product is present in the cart");
+        
         let quantity = await Home_page.productQuantity.getValue()
         expect(quantity).to.equal(testData.quantity)
        

@@ -45,14 +45,14 @@ class Home_page{
     {
         return $("//div[@class='product__info-wrapper grid__item']/descendant::div[@class='price__regular']/span[@class='price-item price-item--regular']")
     }
-    get prcice_at_cart()
+    get prciceAtCart()
     {
         return $("//div[@class='totals']/p")
     }
-    async search_and_Select()
+    async search_and_Select(productnam)
     {
         await this.SearchBtn.click()
-        await this.searchInput.setValue(testData.produnctname)
+        await this.searchInput.setValue(productnam)
        await this.selectList.click()
 
 
