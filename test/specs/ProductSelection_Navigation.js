@@ -53,14 +53,16 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
 
 
     })
-    it("Delete product from cart",async()=>{
-      await Home_page.carticon.click()
 
-    
-      await Home_page.deletebtn.click()
-      browser.pause(3000)
-      let emptytext=await $("//h1[@class='cart__empty-text']").isDisplayed
-      console.log("deleted");
-      
-   })
+   afterEach(async()=>{
+      it("Delete product from cart",async()=>{
+         await Home_page.carticon.click()
+ 
+         browser.pause(4000)
+         await Home_page.deletebtn.click().isDisplayed
+         await $("//h1[@class='cart__empty-text']").isDisplayed
+         console.log("deleted");
+         
+      })
+   }) 
 })
