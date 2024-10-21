@@ -52,7 +52,7 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
        
 
 
-    })
+   
 
    afterEach(async()=>{
       try{
@@ -73,4 +73,5 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
          console.error(`Error in afterEach cleanup: ${error}`);
      }
    }) 
+})
 })
