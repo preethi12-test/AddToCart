@@ -53,4 +53,14 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
 
 
     })
+    it("Delete product from cart",async()=>{
+      await Home_page.carticon.click()
+
+    
+      await Home_page.deletebtn.click()
+      browser.pause(3000)
+      let emptytext=await $("//h1[@class='cart__empty-text']").isDisplayed
+      console.log("deleted");
+      
+   })
 })

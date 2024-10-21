@@ -49,6 +49,10 @@ class Home_page{
     {
         return $("//div[@class='totals']/p")
     }
+    get deletebtn()
+    {
+        return $("//cart-remove-button[@id='Remove-1']")
+    }
     async search_and_Select(productnam)
     {
         await this.SearchBtn.click()
