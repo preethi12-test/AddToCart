@@ -54,24 +54,22 @@ describe('ProductSelectionAndDetailsNavigation',()=>{
 
    
 
-   afterEach(async()=>{
-      try{
-
-      
-         await Home_page.carticon.click()
+   // afterEach(async()=>{
+   //    try{
  
+   //       await Home_page.carticon.click()
          
-         await Home_page.deletebtn.click()
+   //       await Home_page.deletebtn.click()
 
-         const emptyCartMessage = await $("//h1[@class='cart__empty-text']");
-    await emptyCartMessage.waitForDisplayed({ timeout: 5000 });
-    expect(await emptyCartMessage.isDisplayed()).to.be.true;
-    console.log("Cart is confirmed to be empty.");
+   //       const emptyCartMessage = await $("//h1[@class='cart__empty-text']");
+   //  await emptyCartMessage.waitForDisplayed({ timeout: 5000 });
+   //  expect(await emptyCartMessage.isDisplayed()).to.be.true;
+   //  console.log("Cart is confirmed to be empty.");
          
-      }
-      catch (error) {
-         console.error(`Error in afterEach cleanup: ${error}`);
-     }
-   }) 
+   //    }
+   //    catch (error) {
+   //       console.error(`Error in afterEach cleanup: ${error}`);
+   //   }
+   // }) 
 })
 })
