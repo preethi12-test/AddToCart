@@ -41,6 +41,14 @@ class Home_page{
     {
         return $("//div[@class='cart__items']/descendant::input[@id='Quantity-1']")
     }
+    get price()
+    {
+        return $("//div[@class='product__info-wrapper grid__item']/descendant::div[@class='price__regular']/span[@class='price-item price-item--regular']")
+    }
+    get prcice_at_cart()
+    {
+        return $("//div[@class='totals']/p")
+    }
     async search_and_Select()
     {
         await this.SearchBtn.click()
@@ -50,8 +58,6 @@ class Home_page{
 
     }
 
-
-
-
+    
 }
 export default new Home_page()

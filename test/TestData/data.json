@@ -2,5 +2,7 @@
     "url": "https://web-playground.ultralesson.com/",
     "produnctname": "15mm Combo Wrench",
     "quantity":"1",
-    "itemaddedMessage":"Item added to your cart"
+    "itemaddedMessage":"Item added to your cart",
+    "Product_price":"10.99",
+    "Total_price":"10.44"
 }
